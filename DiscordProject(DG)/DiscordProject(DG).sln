@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscordProject(DG)", "DiscordProject(DG)\DiscordProject(DG).csproj", "{050EA0E4-6C71-4A4F-A1D0-347309C9F571}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{050EA0E4-6C71-4A4F-A1D0-347309C9F571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{050EA0E4-6C71-4A4F-A1D0-347309C9F571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{050EA0E4-6C71-4A4F-A1D0-347309C9F571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{050EA0E4-6C71-4A4F-A1D0-347309C9F571}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F90F05E6-0A2E-4828-AEF6-1CD6901BE5EA}
+	EndGlobalSection
+EndGlobal
