@@ -1,13 +1,24 @@
 ﻿using Discord;
 using Discord.WebSocket;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
+using System.IO;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 class Program
 {
     private static DiscordSocketClient _client;
+
+    class Configjson
+    {
+        public string token = "apitoken";
+        public string eventapi = "http://5.42.223.21:2570/?pass=MyNigger";
+        public string primaryapi = "http://5.42.223.21:2569/?pass=MyNigger";
+    }
+
     private static List<string> onlineMessages = new List<string>
     {
         "Server is online, enjoy your game!",
@@ -24,20 +35,41 @@ class Program
     private static int imessage = 0;
     static async Task Main(string[] args)
     {
-        // Discord bot token
-        string token = "apitoken"; // Replace with your actual bot token
+        string cfg = "";
+
+        try
+        {
+            cfg = File.ReadAllText("config.json");
+        }
+        catch
+        {
+            Configjson defaultcfg = new Configjson();
+            string defaultcfgs = JsonConvert.SerializeObject(defaultcfg);
+            cfg = defaultcfgs;
+            File.WriteAllText("config.json", defaultcfgs);
+        }
+
+
+        var dcfg = JsonConvert.DeserializeObject<Configjson>(cfg);
+
+
+        if(dcfg.token == "apitoken")
+        {
+            System.Console.WriteLine("Please Edit the config.json file !");
+            return;
+        }
 
         _client = new DiscordSocketClient();
 
         _client.Log += LogAsync;
 
-        await _client.LoginAsync(TokenType.Bot, token);
+        await _client.LoginAsync(TokenType.Bot, dcfg.token);
         await _client.StartAsync();
 
         while (true)
         {
-            bool eventon = await CheckEvent("http://5.42.223.21:2570/?pass=MyNigger");
-            string statusMessage = await GetStatusFromUrl("http://5.42.223.21:2569/?pass=MyNigger", eventon);
+            bool eventon = await CheckEvent(dcfg.eventapi);
+            string statusMessage = await GetStatusFromUrl(dcfg.primaryapi, eventon);
             
 
             if (!string.IsNullOrEmpty(statusMessage))
