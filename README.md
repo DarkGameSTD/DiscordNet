@@ -71,7 +71,7 @@ git clone https://github.com/DarkGameSTD/DiscordNet.git
 Navigate into the project:
 
 ```bash
-cd DiscordServerStatusBot
+cd DiscordNet
 ```
 
 Restore dependencies:
