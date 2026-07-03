@@ -65,7 +65,7 @@ Watching Offline
 Clone the repository:
 
 ```bash
-git clone https://github.com/DarkGameSTD/DiscordServerStatusBot.git
+git clone https://github.com/DarkGameSTD/DiscordNet.git
 ```
 
 Navigate into the project:
